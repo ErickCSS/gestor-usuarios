@@ -1,0 +1,24 @@
+.field{
+   padding-top: 1em;
+   padding-left: 2em;
+   margin-bottom: 1.1em;
+}
+.field label{
+   display: block;
+   font-size: 1.1em;
+   text-transform: uppercase;
+   font-weight: bold;
+   letter-spacing: 2px;
+   margin-bottom: 0.5em;
+   color: #b7b7a4;
+}
+.field input{
+   outline: 0;
+   border-radius: 10px;
+   padding: 7px 15px;
+   border: 1px solid #cb997e;
+   font-size: 0.8em;
+   color: #cb997e;
+   width: 60%;
+   box-sizing: border-box;
+}
