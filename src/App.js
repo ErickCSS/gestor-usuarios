@@ -1,36 +1,28 @@
 import { useState } from 'react'
-import useForm from './hooks/useForm'
-import Input from  './components/Input'
 import Card from './components/Card'
 import Container from './components/Container'
-import Button from './components/Button'
 import './components/style-custom.css'
+import UserForm from './components/UserForm' 
+
 
 function App() {
   const [usuarios, setUsuarios] = useState([])
-  const [form, handleChange, reset] = useForm({name: '', lastname: '', email: ''})
+  
 
-  const submit = (e) =>{
-    e.preventDefault()
+  const submit = (user) =>{
+    // En el componente userForm, a la función Submit, le pasé los valores de mi formulario y acá los nombré como los valores de "user" y eso es lo que le voy a pasar a la función actualizadora de mi useState
     setUsuarios([
       ...usuarios,
-      form,
+      user,
     ])
     // Cada vez que yo declare mi función actualizadora de useState, que le paso los valores, tengo que pasarle un objeto "[]", no un objeto literla "{}".
 
-    reset()
   }
 
   return (
     <Container>
       <Card>
-        <form onSubmit={submit}>
-          <Input label='Nombre' name="name" value={form.name} onChange={handleChange}></Input>
-          <Input label='Apellido' name="lastname" value={form.lastname} onChange={handleChange}></Input>
-          <Input label='Correo' name="email" value={form.email} onChange={handleChange}></Input>
-          <Button>Enviar</Button>
-          {/* Para que mi componente funcione correctamente siempre debo pasarle la propiedad de " name='' ", y asignarle su valor, ya que es a este a quien le indexaremos el contenido de "value" */}
-        </form>
+        <UserForm submit={submit} />
       </Card>
       <Card>
         <h2 className='title'>Usuarios Agregados</h2>
@@ -42,5 +34,7 @@ function App() {
     </Container>
   )
 }
+
+// Esta refactorización que acabamos de hacer, hace que nuestro componente no se re-renderice cada vez que ando escribiendo en el formulario, sino que se va a renderizar cuando se inicie por primera vez y cuando yo agregue un usuario por completo.
 
 export default App;
