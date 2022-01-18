@@ -10,9 +10,11 @@ const useForm = (inicial) => {
          [x.target.name]: x.target.value
       })
    }
-   console.log(form)
+   const reset = () => {
+      setForm(inicial)
+   }
 
-   return [form, handleChange]
+   return [form, handleChange, reset]
    // Los valores que siempre tengo que exportar cuando hago un custom hooks, siempre será como primer valor, la variable que asignamos en useState y la función que me captura el value de mis inputs, que dentro lleva la función que me actualiza mi variable de useState, que en este caso es "form"
 }
 

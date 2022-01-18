@@ -1,6 +1,5 @@
 .field{
    padding-top: 1em;
-   padding-left: 2em;
    margin-bottom: 1.1em;
 }
 .field label{
@@ -14,11 +13,12 @@
 }
 .field input{
    outline: 0;
-   border-radius: 10px;
+   border-radius: 15px;
    padding: 7px 15px;
    border: 1px solid #cb997e;
    font-size: 0.8em;
    color: #cb997e;
-   width: 60%;
+   width: 100%;
    box-sizing: border-box;
+   height: 40px;
 }
